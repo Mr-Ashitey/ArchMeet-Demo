@@ -23,7 +23,7 @@ class VideoCallState extends State<VideoCall> {
   late TextEditingController emailText;
 
   // Self-explainable bools
-  var isAudioOnly = false;
+  var isAudioOnly = true;
   var isAudioMuted = true;
   var isVideoMuted = true;
 
@@ -85,14 +85,31 @@ class VideoCallState extends State<VideoCall> {
               //   margin: EdgeInsets.fromLTRB(32, 0, 32, 0),
               // ),
               const Spacer(flex: 1),
-              // SvgPicture.string(
-              //   SVGAssets.meetImage,
-              //   width: MediaQuery.of(context).size.width,
-              //   fit: BoxFit.fitWidth,
-              // ),
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Icon(
+                    Icons.videocam_rounded,
+                    size: MediaQuery.of(context).size.width,
+                    color: const Color(0xffAA66CC),
+                    // fit: BoxFit.fitWidth,
+                  ),
+                  Positioned(
+                    left: 120,
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: Color(0xffD64467),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                    ),
+                  )
+                ],
+              ),
               const Spacer(flex: 65),
               Container(
-                child: Text(
+                margin: const EdgeInsets.fromLTRB(32, 0, 32, 0),
+                child: const Text(
                   "Join the Meet",
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
@@ -101,14 +118,13 @@ class VideoCallState extends State<VideoCall> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                margin: EdgeInsets.fromLTRB(32, 0, 32, 0),
               ),
               const Spacer(flex: 65),
               Container(
                 width: 350,
                 height: 60,
                 decoration: BoxDecoration(
-                  color: Color(0xfff3f3f3),
+                  color: const Color(0xfff3f3f3),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: TextField(
@@ -118,12 +134,12 @@ class VideoCallState extends State<VideoCall> {
                   textCapitalization: TextCapitalization.words,
                   textAlignVertical: TextAlignVertical.center,
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                     color: Colors.black,
                   ),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.fromLTRB(16, 8, 0, 0),
                       errorBorder: InputBorder.none,
@@ -135,7 +151,7 @@ class VideoCallState extends State<VideoCall> {
                 ),
               ),
               const Spacer(flex: 58),
-              Container(
+              const SizedBox(
                 width: 350,
                 child: Text(
                   "Meet Guidelines -\n1) For privacy reasons you may change your name if you want.\n2) By default your audio & video are muted.",
@@ -154,17 +170,17 @@ class VideoCallState extends State<VideoCall> {
                       _onAudioMutedChanged(!isAudioMuted);
                     },
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 300),
                       decoration: BoxDecoration(
                           color: isAudioMuted
-                              ? Color(0xffD64467)
-                              : Color(0xffffffff),
+                              ? const Color(0xffD64467)
+                              : const Color(0xffffffff),
                           borderRadius: BorderRadius.circular(16),
                           boxShadow: [
                             BoxShadow(
                                 blurRadius: 10,
                                 color: Colors.black.withOpacity(0.06),
-                                offset: Offset(0, 4)),
+                                offset: const Offset(0, 4)),
                           ]),
                       width: 72,
                       height: 72,
@@ -182,17 +198,17 @@ class VideoCallState extends State<VideoCall> {
                       _onVideoMutedChanged(!isVideoMuted);
                     },
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 300),
                       decoration: BoxDecoration(
                           color: isVideoMuted
-                              ? Color(0xffD64467)
-                              : Color(0xffffffff),
+                              ? const Color(0xffD64467)
+                              : const Color(0xffffffff),
                           borderRadius: BorderRadius.circular(16),
                           boxShadow: [
                             BoxShadow(
                                 blurRadius: 10,
                                 color: Colors.black.withOpacity(0.06),
-                                offset: Offset(0, 4)),
+                                offset: const Offset(0, 4)),
                           ]),
                       width: 72,
                       height: 72,
@@ -210,19 +226,19 @@ class VideoCallState extends State<VideoCall> {
                       _joinMeeting(); // Join meet on tap
                     },
                     child: AnimatedContainer(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         decoration: BoxDecoration(
-                            color: Color(0xffAA66CC),
+                            color: const Color(0xffAA66CC),
                             borderRadius: BorderRadius.circular(16),
                             boxShadow: [
                               BoxShadow(
                                   blurRadius: 10,
                                   color: Colors.black.withOpacity(0.06),
-                                  offset: Offset(0, 4)),
+                                  offset: const Offset(0, 4)),
                             ]),
                         width: 174,
                         height: 72,
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "JOIN MEET",
                             style: TextStyle(
