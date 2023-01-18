@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-// import 'package:jitsi_meet/feature_flag/feature_flag.dart';
 import 'package:jitsi_meet/jitsi_meet.dart';
 import 'package:jitsi_meet/room_name_constraint.dart';
 import 'package:jitsi_meet/room_name_constraint_type.dart';
@@ -23,7 +22,7 @@ class VideoCallState extends State<VideoCall> {
   late TextEditingController emailText;
 
   // Self-explainable bools
-  var isAudioOnly = true;
+  var isAudioOnly = false;
   var isAudioMuted = true;
   var isVideoMuted = true;
 
@@ -68,23 +67,6 @@ class VideoCallState extends State<VideoCall> {
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: <Widget>[
-              const Spacer(flex: 59),
-              // Container(
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //       IconButton(
-              //           icon: Icon(
-              //               Icons.arrow_left), //Import any icon, which you want
-              //           color: Colors.black.withOpacity(0.3),
-              //           onPressed: () {
-              //             Navigator.pop(context);
-              //           }),
-              //     ],
-              //   ),
-              //   margin: EdgeInsets.fromLTRB(32, 0, 32, 0),
-              // ),
-              const Spacer(flex: 1),
               Stack(
                 alignment: Alignment.center,
                 children: [
@@ -92,10 +74,9 @@ class VideoCallState extends State<VideoCall> {
                     Icons.videocam_rounded,
                     size: MediaQuery.of(context).size.width,
                     color: const Color(0xffAA66CC),
-                    // fit: BoxFit.fitWidth,
                   ),
                   Positioned(
-                    left: 120,
+                    left: MediaQuery.of(context).size.width / 3.5,
                     child: Container(
                       height: 100,
                       width: 100,
