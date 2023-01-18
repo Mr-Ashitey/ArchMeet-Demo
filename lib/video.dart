@@ -71,7 +71,7 @@ class VideoCallState extends State<VideoCall> {
                 alignment: Alignment.center,
                 children: [
                   Icon(
-                    Icons.videocam_rounded,
+                    Icons.video_call_outlined,
                     size: MediaQuery.of(context).size.width,
                     color: const Color(0xffAA66CC),
                   ),
@@ -272,6 +272,7 @@ class VideoCallState extends State<VideoCall> {
       // Full list of feature flags (and defaults) available in the README
       Map<FeatureFlagEnum, bool> featureFlags = {
         FeatureFlagEnum.WELCOME_PAGE_ENABLED: false,
+        FeatureFlagEnum.LIVE_STREAMING_ENABLED: false,
       };
       if (!kIsWeb) {
         // Here is an example, disabling features for each platform
